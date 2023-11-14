@@ -21,6 +21,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(option =>
 );
 builder.Services.AddDefaultIdentity<LaptopShopUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<LaptopShopUserContext>();
 builder.Services.AddRazorPages();
+builder.Services.AddSession();
 var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

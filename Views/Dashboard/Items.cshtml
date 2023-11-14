@@ -86,22 +86,22 @@
                                         <!--begin:Menu item-->
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
-                                            <a class="menu-link" asp-action="Laptops">
+                                            <a class="menu-link" asp-action="Items">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
-                                                <span class="menu-title" style="font-family:Cairo"> تفاصيل المنتجات </span>
+                                                <span class="menu-title" style="font-family:Cairo"> اللابتوبات </span>
                                             </a>
                                             <!--end:Menu link-->
                                         </div>
 
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
-                                            <a class="menu-link" asp-action="PaymentAccept">
+                                            <a class="menu-link" asp-action="ItemsDetail">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
-                                                <span class="menu-title" style="font-family:Cairo"> تفاصيل الصور  </span>
+                                                <span class="menu-title" style="font-family:Cairo"> تفاصيل المكونات  </span>
                                             </a>
                                             <!--end:Menu link-->
                                         </div>
@@ -262,9 +262,9 @@
                                                     <td>@cat.Price</td>
                                                     <td>@cat.Discount</td>
                                                     <td><input asp-for="@cat.Active" checked="@cat.Active" disabled /></td>
-                                                    <td><a asp-action="EditTradeMark" asp-route-id="@cat.Id"><i class="fa-solid fa-pen-to-square text-warning"></i></a></td>
+                                                    <td><a asp-action="EditItem" asp-route-id="@cat.Id"><i class="fa-solid fa-pen-to-square text-warning"></i></a></td>
 
-                                                    <td><a asp-action="DeleteTradeMark" asp-route-id="@cat.Id"><i class="fa-solid fa-trash text-danger"></i></a>   </td>
+                                                    <td><a asp-action="DeleteItem" asp-route-id="@cat.Id"><i class="fa-solid fa-trash text-danger"></i></a>   </td>
                                                 </tr>
                                             }
 
@@ -284,7 +284,7 @@
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h3 class="modal-title">اضافة علامة تجارية</h3>
+                                            <h3 class="modal-title">اضافة لابتوب</h3>
 
                                             <!--begin::Close-->
                                             <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
@@ -384,5 +384,6 @@
 
 
     </script>
+     <partial name="_ValidationScriptsPartial" />
                     }
 

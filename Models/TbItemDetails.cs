@@ -6,6 +6,7 @@ namespace LaptopShop.Models
     {
         [Key]
         public int Id { get; set; }
+        public int CatigoryId { get; set; }
         public int ItemId { get; set; }
         [Required(ErrorMessage = "please select CPU")]
         [StringLength(50)]
