@@ -1,0 +1,78 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model TbCategories
+
+
+
+
+
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        <h1 class="alert alert-success">تعديل الماركة</h1>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+
+                                        <form asp-controller="Home" asp-action="Edit" method="post" enctype="multipart/form-data">
+                                            <div class="row">
+                                                <input type="hidden" asp-for="Id" />
+                                                <div class="col-4">
+                                                    <label for="Name">اسم الماركة</label>
+                                                    <input asp-for="Name" id="name" class="form-control " />
+                                                </div>
+                                                <div class="row">
+
+                                                    <div class="col-3">
+                                                        <label for="Image">صورة الماركة</label>
+
+                                                        <div id="demo1">
+
+                                                            <div>
+                                                                <div class="tower-file">
+                                                                    <input asp-for="Image" type="file" name="file" id="demoInput1" value="@Model.Image" class="form-control" />
+                                                                    <label onclick="clearImg();false" id="imgName" for="demoInput1" class="tower-file-button">
+                                                                        Select a File
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div id="editImage">
+                                                                <img src="~/Images/@Model.Image" width="90px" />
+
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <label for="Active">نشط</label>
+                                                        <input asp-for="Active" id="Active" class="form-check form-check-input" />
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <button type="submit" class="btn btn-success">حفظ</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                </div>
+                            </div>
+
+@section Scripts{
+    <script src="~/js/tower-file-input.js"></script>
+    <script>
+        $('#demoInput1').fileInput();
+        function clearImg() {
+            document.getElementById("editImage").style.display = "none";
+        }
+    </script>
+                    }
