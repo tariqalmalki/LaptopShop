@@ -9,7 +9,7 @@ namespace LaptopShop.Models
         [Required(ErrorMessage = "please enter category name")]
         [StringLength(20)]
         public string? Name { get; set; }
-        [Required(ErrorMessage = "please upload image")]
+        
         [StringLength(50)]
         public string? Image { get; set; }
         public bool Active { get; set; }

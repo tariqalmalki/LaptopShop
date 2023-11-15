@@ -226,7 +226,7 @@
                                 <!--end::Card header-->
                                 <!--begin::Card body-->
                                 <div class="card-body pt-0">
-                                    <h1> Hi @ViewBag.Name</h1>
+                                    <h1> Hi @ViewBag.user</h1>
                                     <!--begin::Table-->
                                     <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_customers_table">
                                         <!--begin::Table head-->
@@ -301,15 +301,24 @@
                                                         <select asp-for="TbItem.CatigoryId" id="catigory" asp-items="@(new SelectList(Model.TbCategories,"Id","Name"))" class="form-select " >
                                                             <option value="" selected>اختر</option>
                                                         </select>
+                                                        <span class="text-danger" asp-validation-for="TbItem.CatigoryId"></span>
                                                     </div>
                                                     <div class="col-12">
                                                         <label for="Name">اسم الجهاز</label>
                                                         <input asp-for="TbItem.Name" id="name" class="form-control " />
+                                                        <span class="text-danger" asp-validation-for="TbItem.Name"></span>
                                                     </div>
+
                                                     
                                                     <div class="col-12">
                                                         <label for="Price">السعر</label>
                                                         <input asp-for="TbItem.Price" id="price" class="form-control " />
+                                                        <span class="text-danger" asp-validation-for="TbItem.Price"></span>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <label for="Discount">الخصم</label>
+                                                        <input asp-for="TbItem.Discount" id="Discount" class="form-control " />
+                                                        <span class="text-danger" asp-validation-for="TbItem.Discount"></span>
                                                     </div>
                                                     <div class="row text-center d-flex justify-content-center m-3">
 

@@ -225,7 +225,7 @@
                                 <!--end::Card header-->
                                 <!--begin::Card body-->
                                 <div class="card-body pt-0">
-                                    <h1> Hi @ViewBag.Name</h1>
+                                    <h1> Hi @ViewBag.user</h1>
                                     <!--begin::Table-->
                                     <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_customers_table">
                                         <!--begin::Table head-->
@@ -292,6 +292,7 @@
                                                     <div class="col-12">
                                                         <label for="Name">اسم الماركة</label>
                                                         <input asp-for="Category.Name" id="name" class="form-control " />
+                                                        <span asp-validation-for="Category.Name" class="text-danger"></span>
                                                     </div>
                                                     <div class="row text-center d-flex justify-content-center m-3">
 
@@ -302,7 +303,7 @@
 
                                                                 <div>
                                                                     <div class="tower-file">
-                                                                        <input type="file" name="file" id="demoInput1" value="" class="form-control" />
+                                                                        <input asp-for=Category.Image type="file" name="file" id="demoInput1" value="" class="form-control" required />
                                                                         <label for="demoInput1" class="tower-file-button">
                                                                             Select a File
                                                                         </label>

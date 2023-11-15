@@ -6,7 +6,9 @@ namespace LaptopShop.Models
     {
         [Key]
         public int Id { get; set; }
+        [Required(ErrorMessage = "please select Trade Mark")]
         public int CatigoryId { get; set; }
+        [Required(ErrorMessage = "please select Laptop")]
         public int ItemId { get; set; }
         [Required(ErrorMessage = "please select CPU")]
         [StringLength(50)]
@@ -20,6 +22,7 @@ namespace LaptopShop.Models
         [StringLength(50)]
         public string? HardDisk { get; set; }
         [Required(ErrorMessage = "please enter screen size")]
+        [Range(0,20)]
         public decimal ScreenSize { get; set; }
         [Required(ErrorMessage = "please select operating system")]
         [StringLength(15)]

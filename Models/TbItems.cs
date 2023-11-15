@@ -6,15 +6,16 @@ namespace LaptopShop.Models
     {
         [Key] 
         public int Id { get; set; }
+        [Required(ErrorMessage = "please select Trade Mark")]
         public int CatigoryId { get; set; }
         [Required(ErrorMessage = "please enter item name")]
         [StringLength(50)]
         public string? Name { get; set; }
         
         [Required(ErrorMessage = "please enter price")]
+        [Range(1,100000)]
         public decimal Price { get; set; }
         public decimal Discount { get; set; }
-        [Required(ErrorMessage = "please upload image")]
         [StringLength(50)]
         public string? Image { get; set; }
         public bool Active { get; set; }

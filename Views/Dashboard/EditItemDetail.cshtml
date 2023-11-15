@@ -1,4 +1,4 @@
-﻿@model TbItems
+﻿@model TbItemDetails
 <body dir="rtl" id="kt_app_body" data-kt-app-layout="dark-sidebar" data-kt-app-sidebar-push-header="true" data-kt-app-sidebar-push-toolbar="true" data-kt-app-sidebar-push-footer="true" data-kt-app-toolbar-enabled="true" class="app-default">
 
 
@@ -163,7 +163,6 @@
                                 <div class="card-header border-0 pt-6">
                                     <!--begin::Card title-->
                                     <div class="card-title">
-
                                     </div>
 
                                 </div>
@@ -171,16 +170,16 @@
                                 <!--begin::Card body-->
                                 <div class="card-body pt-0">
 
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col">
-                                        <h1 class="alert alert-success">تعديل الماركة</h1>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col">
+                                                <h1 class="alert alert-success">تعديل الماركة</h1>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
 
-                                                <form asp-controller="Dashboard" asp-action="EditItem" method="post" enctype="multipart/form-data">
+                                                <form asp-controller="Dashboard" asp-action="EditItemDetail" method="post">
                                                     <div class="row m-3">
                                                         <div class="col-12">
                                                             <label for="Catigory">اسم الماركة</label>
@@ -190,45 +189,78 @@
                                                             <span class="text-danger" asp-validation-for="CatigoryId"></span>
                                                         </div>
                                                         <div class="col-12">
-                                                            <label for="Name">اسم الجهاز</label>
-                                                            <input asp-for="Name" id="name" class="form-control " />
-                                                            <span class="text-danger" asp-validation-for="Name"></span>
-                                                        </div>
-
-                                                        <div class="col-12">
-                                                            <label for="Price">السعر</label>
-                                                            <input asp-for="Price" id="price" class="form-control " />
-                                                            <span class="text-danger" asp-validation-for="Price"></span>
+                                                            <label for="ItemDetail">نوع اللابتوب</label>
+                                                            <select asp-for="ItemId" id="ItemDetail" asp-items="@(new SelectList(ViewBag.items,"Id","Name"))" class="form-select ">
+                                                                <option value="" selected>اختر</option>
+                                                            </select>
+                                                            <span class="text-danger" asp-validation-for="ItemId"></span>
                                                         </div>
                                                         <div class="col-12">
-                                                            <label for="Discount">الخصم</label>
-                                                            <input asp-for="Discount" id="Discount" class="form-control " />
-                                                            <span class="text-danger" asp-validation-for="Discount"></span>
+                                                            <label for="CPU">المعالج</label>
+                                                            <select asp-for="CPU" id="CPU" class="form-select ">
+                                                                <option value="" selected>اختر</option>
+                                                                <option value="Intel">Intel</option>
+                                                                <option value="AMD">AMD</option>
+                                                            </select>
+                                                            <span class="text-danger" asp-validation-for="CPU"></span>
                                                         </div>
-                                                        <div class="row text-center d-flex justify-content-center m-3">
-
-                                                            <div class="col-4">
-                                                                <label for="Image">صورة الماركة</label>
-
-                                                                <div id="demo1">
-
-                                                                    <div>
-                                                                        <div class="tower-file">
-                                                                            <input type="file" name="file" id="demoInput1" value="" class="form-control" />
-                                                                            <label onclick="clearImg();false" for="demoInput1" class="tower-file-button">
-                                                                                Select a File
-                                                                            </label>
-                                                                        </div>
-                                                                        <div id="editImage">
-                                                                            <img src="~/Images/Laptops/@Model.Image" width="90px" />
-
-                                                                        </div>
-                                                                    </div>
-
-
-                                                                </div>
-                                                            </div>
+                                                        <div class="col-12">
+                                                            <label for="GPU">كرت الشاشة</label>
+                                                            <select asp-for="GPU" id="GPU" class="form-select ">
+                                                                <option value="" selected>اختر</option>
+                                                                <option value="AMD Radeon RX 6800">AMD Radeon RX 6800</option>
+                                                                <option value="MSI RTX 3090 Gaming">MSI RTX 3090 Gaming </option>
+                                                                <option value="Nvidia GeForce GTX 1660">Nvidia GeForce GTX 1660  </option>
+                                                            </select>
+                                                            <span class="text-danger" asp-validation-for="GPU"></span>
                                                         </div>
+                                                        <div class="col-12">
+                                                            <label for="Ram">مساحة الذاكرة</label>
+                                                            <select asp-for="RamSize" id="Ram" class="form-select ">
+                                                                <option value="" selected>اختر</option>
+                                                                <option value="4">4 GB</option>
+                                                                <option value="8">8 GB</option>
+                                                                <option value="12">12 GB</option>
+                                                                <option value="16">16 GB</option>
+                                                                <option value="32">32 GB</option>
+                                                                <option value="64">64 GB</option>
+                                                            </select>
+                                                            <span class="text-danger" asp-validation-for="RamSize"></span>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <label for="HardDisk">مساحة القرص الصلب</label>
+                                                            <select asp-for="HardDisk" id="HardDisk" class="form-select ">
+                                                                <option value="" selected>اختر</option>
+                                                                <option value="250 GB">250 GB</option>
+                                                                <option value="500 GB">500 GB</option>
+                                                                <option value="1 TB">1 TB</option>
+                                                                <option value="2 TB">2 TB</option>
+                                                            </select>
+                                                            <span class="text-danger" asp-validation-for="HardDisk"></span>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <label for="ScreenSize">مساحة الشاشة</label>
+                                                            <select asp-for="ScreenSize" id="ScreenSize" class="form-select ">
+                                                                <option value="" selected>اختر</option>
+                                                                <option value="13.00">13.0 </option>
+                                                                <option value="13.50">13.5</option>
+                                                                <option value="15.60">15.6</option>
+                                                                <option value="17.00">17.0</option>
+                                                            </select>
+                                                            <span class="text-danger" asp-validation-for="ScreenSize"></span>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <label for="OperatingSystem">النظام</label>
+                                                            <select asp-for="OperatingSystem" id="OperatingSystem" class="form-select ">
+                                                                <option value="" selected>اختر</option>
+                                                                <option value="Windows">Windows </option>
+                                                                <option value="Linux">Linux</option>
+                                                                <option value="MacOs">MacOs</option>
+                                                            </select>
+                                                            <span class="text-danger" asp-validation-for="OperatingSystem"></span>
+                                                        </div>
+
+
 
                                                         <div class="row text-center m-3">
                                                             <div class="col">
@@ -243,12 +275,12 @@
                                                         </div>
                                                     </div>
                                                 </form>
+                                            </div>
+
+                                        </div>
                                     </div>
 
                                 </div>
-                            </div>
-
-                            </div>
                             </div>
                         </div>
                     </div>
@@ -259,12 +291,6 @@
 </body>
 
 @section Scripts{
-        <script src="~/js/tower-file-input.js"></script>
-        <script>
-            $('#demoInput1').fileInput();
-            function clearImg() {
-                document.getElementById("editImage").style.display = "none";
-            }
-        </script>
+
     <partial name="_ValidationScriptsPartial" />
                     }

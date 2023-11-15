@@ -163,74 +163,75 @@
                                 <div class="card-header border-0 pt-6">
                                     <!--begin::Card title-->
                                     <div class="card-title">
-                                        
                                     </div>
-                                    
+
                                 </div>
                                 <!--end::Card header-->
                                 <!--begin::Card body-->
                                 <div class="card-body pt-0">
 
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col">
-                                        <h1 class="alert alert-success">تعديل الماركة</h1>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col">
+                                                <h1 class="alert alert-success">تعديل الماركة</h1>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
 
-                                        <form asp-controller="Dashboard" asp-action="EditTradeMark" method="post" enctype="multipart/form-data">
-                                            <div class="row">
-                                                <input type="hidden" asp-for="Id" />
-                                                <input type="hidden" asp-for="Image" />
-                                                <div class="col-4">
-                                                    <label for="Name">اسم الماركة</label>
-                                                    <input asp-for="Name" id="name" class="form-control " />
-                                                </div>
-                                                <div class="row">
+                                                <form asp-controller="Dashboard" asp-action="EditTradeMark" method="post" enctype="multipart/form-data">
+                                                    <div class="row">
+                                                        <input type="hidden" asp-for="Id" />
+                                                        <input type="hidden" asp-for="Image" />
+                                                        <div class="col-4">
+                                                            <label for="Name">اسم الماركة</label>
+                                                            <input asp-for="Name" id="name" class="form-control " />
+                                                            <span asp-validation-for="Name" class="text-danger"></span>
+                                                        </div>
 
-                                                    <div class="col-3">
-                                                        <label for="Image">صورة الماركة</label>
+                                                        <div class="row">
 
-                                                        <div id="demo1">
+                                                            <div class="col-3">
+                                                                <label for="Image">صورة الماركة</label>
 
-                                                            <div>
-                                                                <div class="tower-file">
-                                                                    <input type="file" name="file" id="demoInput1" class="form-control" />
-                                                                    <label onclick="clearImg();false" id="imgName" for="demoInput1" class="tower-file-button">
-                                                                        Select a File
-                                                                    </label>
+                                                                <div id="demo1">
+
+                                                                    <div>
+                                                                        <div class="tower-file">
+                                                                            <input type="file" name="file" id="demoInput1" class="form-control" />
+                                                                            <label onclick="clearImg();false" id="imgName" for="demoInput1" class="tower-file-button">
+                                                                                Select a File
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div id="editImage">
+                                                                        <img src="~/Images/@Model.Image" width="90px" />
+
+                                                                    </div>
+
                                                                 </div>
                                                             </div>
-                                                            <div id="editImage">
-                                                                <img src="~/Images/@Model.Image" width="90px" />
+                                                        </div>
 
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <label for="Active">نشط</label>
+                                                                <input asp-for="Active" id="Active" class="form-check form-check-input" />
                                                             </div>
-
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <button type="submit" class="btn btn-success">حفظ</button>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <label for="Active">نشط</label>
-                                                        <input asp-for="Active" id="Active" class="form-check form-check-input" />
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <button type="submit" class="btn btn-success">حفظ</button>
-                                                    </div>
-                                                </div>
+                                                </form>
                                             </div>
-                                        </form>
+
+                                        </div>
                                     </div>
 
                                 </div>
-                            </div>
-
-                            </div>
                             </div>
                         </div>
                     </div>

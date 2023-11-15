@@ -7,8 +7,6 @@
 @{
 
     ViewData["Title"] = "Home Page";
-    var cati = TempData["Cat"] as List<TbCategories>;
-    var itee = TempData["Ite"] as List<TbItems>;
 }
 @model ItemsDetailVM
 <body dir="rtl" id="kt_app_body" data-kt-app-layout="dark-sidebar" data-kt-app-sidebar-push-header="true" data-kt-app-sidebar-push-toolbar="true" data-kt-app-sidebar-push-footer="true" data-kt-app-toolbar-enabled="true" class="app-default">
@@ -227,7 +225,7 @@
                                 <!--end::Card header-->
                                 <!--begin::Card body-->
                                 <div class="card-body pt-0">
-                                    <h1> Hi @ViewBag.Name</h1>
+                                    <h1> Hi @ViewBag.user</h1>
                                     <!--begin::Table-->
                                     <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_customers_table">
                                         <!--begin::Table head-->
@@ -248,6 +246,7 @@
                                                 <th class="min-w-125px text-end" style="font-family:cairo">مساحة القرص الصلب  </th>
                                                 <th class="min-w-125px text-end" style="font-family:cairo">حجم الشاشة  </th>
                                                 <th class="min-w-125px text-end" style="font-family:cairo">النظام  </th>
+                                                <th class="min-w-125px text-end" style="font-family:cairo">حالة الجهاز  </th>
                                                 <th class="min-w-125px text-end" style="font-family:cairo" colspan="2">الاجراء </th>
 
 
@@ -261,8 +260,8 @@
                                             {
                                                 <tr>
                                                     
-                                                    <td>@cati.FirstOrDefault(a=>a.Id == @cat.CatigoryId).Name.ToString()</td>
-                                                    <td>@itee.FirstOrDefault(a=>a.Id == @cat.ItemId).Name.ToString()</td>
+                                                    <td>@Model.TbCategories.FirstOrDefault(a=>a.Id == @cat.CatigoryId).Name.ToString()</td>
+                                                    <td>@Model.TbItems.FirstOrDefault(a=>a.Id == @cat.ItemId).Name.ToString()</td>
                                                     <td>@cat.CPU</td>
                                                     <td>@cat.GPU</td>
                                                     <td>@cat.RamSize</td>
@@ -309,12 +308,14 @@
                                                         <select asp-for="ItemDetail.CatigoryId" id="catigory" asp-items="@(new SelectList(Model.TbCategories,"Id","Name"))" class="form-select ">
                                                             <option value="" selected>اختر</option>
                                                         </select>
+                                                        <span class="text-danger" asp-validation-for="ItemDetail.CatigoryId"></span>
                                                     </div>
                                                     <div class="col-12">
                                                         <label for="ItemDetail">نوع اللابتوب</label>
                                                         <select asp-for="ItemDetail.ItemId" id="ItemDetail" asp-items="@(new SelectList(Model.TbItems,"Id","Name"))" class="form-select ">
                                                             <option value="" selected>اختر</option>
                                                         </select>
+                                                        <span class="text-danger" asp-validation-for="ItemDetail.ItemId"></span>
                                                     </div>
                                                     <div class="col-12">
                                                         <label for="CPU">المعالج</label>
@@ -333,6 +334,7 @@
                                                             <option value="MSI RTX 3090 Gaming">MSI RTX 3090 Gaming </option>
                                                             <option value="Nvidia GeForce GTX 1660" >Nvidia GeForce GTX 1660  </option>
                                                         </select>
+                                                        <span class="text-danger" asp-validation-for="ItemDetail.GPU"></span>
                                                     </div>
                                                     <div class="col-12">
                                                         <label for="Ram">مساحة الذاكرة</label>
@@ -344,8 +346,8 @@
                                                             <option value="16" >16 GB</option>
                                                             <option value="32" >32 GB</option>
                                                             <option value="64" >64 GB</option>
-                                                           
                                                         </select>
+                                                        <span class="text-danger" asp-validation-for="ItemDetail.RamSize"></span>
                                                     </div>
                                                     <div class="col-12">
                                                         <label for="HardDisk">مساحة القرص الصلب</label>
@@ -355,9 +357,8 @@
                                                             <option value="500 GB">500 GB</option>
                                                             <option value="1 TB">1 TB</option>
                                                             <option value="2 TB">2 TB</option>
-                                                            
-
                                                         </select>
+                                                        <span class="text-danger" asp-validation-for="ItemDetail.HardDisk"></span>
                                                     </div>
                                                     <div class="col-12">
                                                         <label for="ScreenSize">مساحة الشاشة</label>
@@ -367,9 +368,8 @@
                                                             <option value="13.5">13.5</option>
                                                             <option value="15.6">15.6</option>
                                                             <option value="17.0">17.0</option>
-                                                            
-
                                                         </select>
+                                                        <span class="text-danger" asp-validation-for="ItemDetail.ScreenSize"></span>
                                                     </div>
                                                     <div class="col-12">
                                                         <label for="OperatingSystem">النظام</label>
@@ -379,6 +379,7 @@
                                                             <option value="Linux">Linux</option>
                                                             <option value="MacOs">MacOs</option>
                                                         </select>
+                                                        <span class="text-danger" asp-validation-for="ItemDetail.OperatingSystem"></span>
                                                     </div>
 
                                                   
